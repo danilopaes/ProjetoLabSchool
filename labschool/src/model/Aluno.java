@@ -1,26 +1,28 @@
 package model;
-import javax.xml.crypto.Data;
 
 public class Aluno extends Pessoa {
 
-    int matricula;
+    Integer  matricula;
 
-    public Aluno() {
-        
-    }
 
-    public Aluno(String nome, Number telefone, Data dataNascimento, Number cpf, int codigo, int matricula) {
-        super(nome, telefone, dataNascimento, cpf, codigo);
+    public Aluno(String nome, Integer telefone, String dataNascimento, Integer cpf, Integer matricula) {
+        super(nome, telefone, dataNascimento, cpf);
         this.matricula = matricula;
     }
 
-    public int getMatricula() {
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "matricula=" + matricula +
+                '}';
+    }
+
+    public Integer getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(Integer matricula) {
         this.matricula = matricula;
     }
-
 }
 

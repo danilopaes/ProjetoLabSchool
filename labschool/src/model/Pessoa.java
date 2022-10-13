@@ -1,33 +1,23 @@
 package model;
 import javax.xml.crypto.Data;
+import java.lang.Math;
 
 public class Pessoa {
-    public static void main(String[] args) {
-        
-    String nome;
-    Number telefone;
-    Data dataNascimento;
-    Number cpf;
-    int codigo;
 
-    }
 
     private String nome;
-    private Number telefone;
-    private Data dataNascimento;
-    private Number cpf;
-    private int codigo;
+    private Integer  telefone;
+    private String dataNascimento;
+    private Integer  cpf;
+    private double codigo = Math.random();
 
-    public Pessoa() {
-        
-    }
 
-    public Pessoa(String nome, Number telefone, Data dataNascimento, Number cpf, int codigo) {
+
+    public Pessoa(String nome, Integer telefone, String dataNascimento, Integer cpf) {
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
-        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -38,36 +28,39 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Number getTelefone() {
+    public Integer getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Number telefone) {
+    public void setTelefone(Integer telefone) {
         this.telefone = telefone;
     }
 
-    public Data getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Data dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public Number getCpf() {
+    public Integer getCpf() {
         return cpf;
     }
 
-    public void setCpf(Number cpf) {
+    public void setCpf(Integer cpf) {
         this.cpf = cpf;
     }
 
-    public int getCodigo() {
-        return codigo;
-    }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", telefone=" + telefone +
+                ", dataNascimento='" + dataNascimento + '\'' +
+                ", cpf=" + cpf +
+                ", codigo=" + codigo +
+                '}';
     }
-
 }
