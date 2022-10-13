@@ -5,6 +5,10 @@ public class Professor extends Pessoa {
         String experienciaDesenvolvimento;
   
     }
+    
+    private String experienciaDesenvolvimento;
+    private String formacao;
+    
     public Professor() {
         
     }

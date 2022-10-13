@@ -52,10 +52,36 @@ public class Menu {
                 case 2:
                     System.out.println("Cadastrar Professor");
                     System.out.println();
+                    System.out.println("Digite o nome do professor: ");
+                    aluno.setNome(teclado.next());
+                    System.out.println("Digite o telefone do professor: ");
+                    aluno.setTelefone(teclado.next());
+                    System.out.println("Digite a data de nascimento do professor: ");
+                    aluno.setDataNascimento(teclado.next());
+                    System.out.println("Digite o CPF do professor: ");
+                    aluno.setCpf(teclado.next());
+                    System.out.println("Digite o código do professor: ");
+                    aluno.setCodigo(teclado.nextInt());
+                    System.out.println("Digite a Formação do professor: ");
+                    aluno.setFormacao(teclado.next());
+                    System.out.println();
+                    System.out.println("Digite Experiencia de Desenvolvimento do professor: ");
+                    aluno.setExperienciaDesenvolvimento(teclado.next());
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("Cadastrar Pedagogo");
                     System.out.println();
+                    System.out.println("Digite o nome do pedagogo: ");
+                    aluno.setNome(teclado.next());
+                    System.out.println("Digite o telefone do pedagogo: ");
+                    aluno.setTelefone(teclado.next());
+                    System.out.println("Digite a data de nascimento do pedagogo: ");
+                    aluno.setDataNascimento(teclado.next());
+                    System.out.println("Digite o CPF do pedagogo: ");
+                    aluno.setCpf(teclado.next());
+                    System.out.println("Digite o código do pedagogo: ");
+                    aluno.setCodigo(teclado.nextInt());
                     break;
 
                 case 4:

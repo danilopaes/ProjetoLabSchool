@@ -12,6 +12,12 @@ public class Pessoa {
 
     }
 
+    private String nome;
+    private Number telefone;
+    private Data dataNascimento;
+    private Number cpf;
+    private int codigo;
+
     public Pessoa() {
         
     }
