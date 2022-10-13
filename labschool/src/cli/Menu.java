@@ -2,11 +2,18 @@ package cli;
 import java.util.Scanner;
 
 import model.Aluno;
+import model.Pessoa;
+import model.Professor;
+import model.Pedagogo;
+
 
 public class Menu {
-    public static void main(String[] args) {
+    public static Operacao main(String[] args) {
         
+        // Pessoa pessoa = new Pessoa();
         Aluno aluno = new Aluno();
+        // Professor professor = new Professor();
+        // Pedagogo pedagogo = new Pedagogo();
     
         Scanner teclado = new Scanner(System.in);
 
@@ -31,6 +38,22 @@ public class Menu {
             opcao = teclado.nextInt();
             System.out.println();
 
+
+            // public Operacao codigo(){
+            //     System.out.println("Escolha uma opção: ");
+            //     Scanner teclado = new Scanner(System.in);
+            //     int opcao = teclado.nextInt();
+            //     System.out.println();
+            //     Operacao operacao = Operacao.codigo(opcao);
+            //     return operacao;
+            // }
+
+            // public void informarOpcaoInvalida(){
+            //     System.out.println("Opção inválida!");
+            //     System.out.println();
+            // }
+
+
             switch(opcao){
                 case 1:
                     System.out.println("Cadastrar Aluno");
@@ -49,77 +72,77 @@ public class Menu {
                     aluno.setMatricula(teclado.nextInt());
                     System.out.println();
                     break;
-                case 2:
-                    System.out.println("Cadastrar Professor");
-                    System.out.println();
-                    System.out.println("Digite o nome do professor: ");
-                    aluno.setNome(teclado.next());
-                    System.out.println("Digite o telefone do professor: ");
-                    aluno.setTelefone(teclado.next());
-                    System.out.println("Digite a data de nascimento do professor: ");
-                    aluno.setDataNascimento(teclado.next());
-                    System.out.println("Digite o CPF do professor: ");
-                    aluno.setCpf(teclado.next());
-                    System.out.println("Digite o código do professor: ");
-                    aluno.setCodigo(teclado.nextInt());
-                    System.out.println("Digite a Formação do professor: ");
-                    aluno.setFormacao(teclado.next());
-                    System.out.println();
-                    System.out.println("Digite Experiencia de Desenvolvimento do professor: ");
-                    aluno.setExperienciaDesenvolvimento(teclado.next());
-                    System.out.println();
-                    break;
-                case 3:
-                    System.out.println("Cadastrar Pedagogo");
-                    System.out.println();
-                    System.out.println("Digite o nome do pedagogo: ");
-                    aluno.setNome(teclado.next());
-                    System.out.println("Digite o telefone do pedagogo: ");
-                    aluno.setTelefone(teclado.next());
-                    System.out.println("Digite a data de nascimento do pedagogo: ");
-                    aluno.setDataNascimento(teclado.next());
-                    System.out.println("Digite o CPF do pedagogo: ");
-                    aluno.setCpf(teclado.next());
-                    System.out.println("Digite o código do pedagogo: ");
-                    aluno.setCodigo(teclado.nextInt());
-                    break;
+                // case 2:
+                //     System.out.println("Cadastrar Professor");
+                //     System.out.println();
+                //     System.out.println("Digite o nome do professor: ");
+                //     aluno.setNome(teclado.next());
+                //     System.out.println("Digite o telefone do professor: ");
+                //     aluno.setTelefone(teclado.next());
+                //     System.out.println("Digite a data de nascimento do professor: ");
+                //     aluno.setDataNascimento(teclado.next());
+                //     System.out.println("Digite o CPF do professor: ");
+                //     aluno.setCpf(teclado.next());
+                //     System.out.println("Digite o código do professor: ");
+                //     aluno.setCodigo(teclado.nextInt());
+                //     System.out.println("Digite a Formação do professor: ");
+                //     aluno.setFormacao(teclado.next());
+                //     System.out.println();
+                //     System.out.println("Digite Experiencia de Desenvolvimento do professor: ");
+                //     aluno.setExperienciaDesenvolvimento(teclado.next());
+                //     System.out.println();
+                //     break;
+                // case 3:
+                //     System.out.println("Cadastrar Pedagogo");
+                //     System.out.println();
+                //     System.out.println("Digite o nome do pedagogo: ");
+                //     aluno.setNome(teclado.next());
+                //     System.out.println("Digite o telefone do pedagogo: ");
+                //     aluno.setTelefone(teclado.next());
+                //     System.out.println("Digite a data de nascimento do pedagogo: ");
+                //     aluno.setDataNascimento(teclado.next());
+                //     System.out.println("Digite o CPF do pedagogo: ");
+                //     aluno.setCpf(teclado.next());
+                //     System.out.println("Digite o código do pedagogo: ");
+                //     aluno.setCodigo(teclado.nextInt());
+                //     break;
 
-                case 4:
-                    System.out.println("Atualiza Matricula do Aluno");
-                    System.out.println();
-                    break;
-                case 5:
-                    System.out.println("Realiza Atendimento Pedagogo");
-                    System.out.println();
-                    break;
-                case 6:
-                    System.out.println("Lista de Pessoas");
-                    System.out.println();
-                    break;
-                case 7:
-                    System.out.println("Relatório Alunos");
-                    System.out.println();
-                    break;
-                case 8:
-                    System.out.println("Relatório Professores");
-                    System.out.println();
-                    break;
-                case 9:
-                    System.out.println("Relatório dos Alunos mais Atendidos pelo Pedagogo");
-                    System.out.println();
-                    break;
-                case 10:
-                    System.out.println("Relatório dos Pedagogos com mais Atendimentos");
-                    System.out.println();
-                    break;
-                case 0:
-                    System.out.println("Sair");
-                    System.out.println();
-                    break;
-                default:
-                    System.out.println("Opção invalida");
-                    System.out.println();
-                    break;
+                // case 4:
+                //     System.out.println("Atualiza Matricula do Aluno");
+                //     System.out.println();
+                //     break;
+                // case 5:
+                //     System.out.println("Realiza Atendimento Pedagogo");
+                //     System.out.println();
+                //     break;
+                // case 6:
+                //     System.out.println("Lista de Pessoas");
+                //     System.out.println();
+                //     break;
+                // case 7:
+                //     System.out.println("Relatório Alunos");
+                //     System.out.println();
+                //     break;
+                // case 8:
+                //     System.out.println("Relatório Professores");
+                //     System.out.println();
+                //     break;
+                // case 9:
+                //     System.out.println("Relatório dos Alunos mais Atendidos pelo Pedagogo");
+                //     System.out.println();
+                //     break;
+                // case 10:
+                //     System.out.println("Relatório dos Pedagogos com mais Atendimentos");
+                //     System.out.println();
+                //     break;
+                // case 0:
+                //     System.out.println("Sair");
+                //     System.out.println();
+                //     break;
+                // default:
+                //     System.out.println("Opção invalida");
+                //     System.out.println();
+                //     break;
 
             }
 

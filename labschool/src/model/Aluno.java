@@ -1,4 +1,6 @@
 package model;
+import javax.xml.crypto.Data;
+
 public class Aluno extends Pessoa {
 
     int matricula;
