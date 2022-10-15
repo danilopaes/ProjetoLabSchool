@@ -14,6 +14,7 @@ public class Menu {
 
         int opcao;
 
+        List<Pessoa> pessoas = new ArrayList<>();
         List<Aluno> alunos = new ArrayList<Aluno>();
         List<Professor> professores = new ArrayList<Professor>();
         List<Pedagogo> pedagogos = new ArrayList<Pedagogo>();
@@ -54,6 +55,7 @@ public class Menu {
                     String formacaoProfessor = JOptionPane.showInputDialog("Digite a formacao");
 
                     Professor professor = new Professor(nomeProfessor, telefoneProfessor, dataNascimentoProfessor, cpfProfessor, experienciaProfessor, formacaoProfessor, estadoProfessor);
+
                     professores.add(professor);
 
                     System.out.println();
@@ -68,6 +70,9 @@ public class Menu {
                     String dataNascimentoPedagogo = JOptionPane.showInputDialog("Digite a data de nascimento");
                     String cpfPedagogo = JOptionPane.showInputDialog("Digite o cpf");
 
+                    Pedagogo pedagogo = new Pedagogo(nomePedagogo, telefonePedagogo, dataNascimentoPedagogo, cpfPedagogo, contadorPedagogo);
+                    pedagogos.add(pedagogo);
+
                     System.out.println();
                 break;
 
@@ -75,6 +80,10 @@ public class Menu {
                     System.out.println("Atualiza Matricula do Aluno");
                     System.out.println();
                     String matriculaAlunoAtualizada = JOptionPane.showInputDialog("Digite a matricula");
+
+                    aluno.setMatricula(matriculaAlunoAtualizada);
+
+                    System.out.println("Matricula atualizada com sucesso");
                     System.out.println();
 
                 break;
@@ -84,6 +93,8 @@ public class Menu {
                     System.out.println();
                     String nomeAlunoAtendimento = JOptionPane.showInputDialog("Digite o nome do aluno");
                     String nomePedagogoAtendimento = JOptionPane.showInputDialog("Digite o nome do pedagogo");
+
+
                     System.out.println();
 
                 break;
@@ -91,9 +102,10 @@ public class Menu {
                 case 6:
                     System.out.println("Lista de Pessoas");
 
+                    for (int i = 0; i < pessoas.size(); i++) {
+                        pessoas.get(i).toString();
+                    }
                     System.out.println();
-
-
                 break;  
 
                 case 7:
@@ -103,7 +115,6 @@ public class Menu {
 
                         alunos.get(i).toString();
                     }
-
                     System.out.println();
                 break;
 
@@ -114,7 +125,6 @@ public class Menu {
 
                         professores.get(i).toString();
                     }
-
                     System.out.println();
                 break;
 
@@ -123,11 +133,15 @@ public class Menu {
 
 
 
+
                     System.out.println();
                 break;
 
                 case 10:
                     System.out.println("Relatório dos Pedagogos com mais Atendimentos");
+
+
+
                     System.out.println();
                 break;
 
