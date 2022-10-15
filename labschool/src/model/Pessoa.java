@@ -1,19 +1,17 @@
 package model;
-import javax.xml.crypto.Data;
-import java.lang.Math;
+
 
 public class Pessoa {
 
 
     private String nome;
-    private Integer  telefone;
+    private String  telefone;
     private String dataNascimento;
-    private Integer  cpf;
+    private String  cpf;
     private double codigo = Math.random();
 
 
-
-    public Pessoa(String nome, Integer telefone, String dataNascimento, Integer cpf) {
+    public Pessoa(String nome, String telefone, String dataNascimento, String cpf) {
         this.nome = nome;
         this.telefone = telefone;
         this.dataNascimento = dataNascimento;
@@ -28,11 +26,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -44,22 +42,24 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
+    public double getCodigo() {
+        return codigo;
+    }
 
-    @Override
     public String toString() {
         return "Pessoa{" +
                 "nome='" + nome + '\'' +
-                ", telefone=" + telefone +
+                ", telefone='" + telefone + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +
-                ", cpf=" + cpf +
+                ", cpf='" + cpf + '\'' +
                 ", codigo=" + codigo +
                 '}';
     }

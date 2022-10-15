@@ -2,27 +2,27 @@ package model;
 
 public class Aluno extends Pessoa {
 
-    Integer  matricula;
+    String matricula;
 
 
-    public Aluno(String nome, Integer telefone, String dataNascimento, Integer cpf, Integer matricula) {
+    public Aluno(String nome, String telefone, String dataNascimento, String cpf,String matricula) {
         super(nome, telefone, dataNascimento, cpf);
+        this.matricula = matricula;
+    }
+
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
     @Override
     public String toString() {
         return "Aluno{" +
-                "matricula=" + matricula +
-                '}';
-    }
-
-    public Integer getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Integer matricula) {
-        this.matricula = matricula;
+                "matricula='" + matricula + '\'' +
+                "} " + super.toString();
     }
 }
-
