@@ -1,6 +1,8 @@
 package cli;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 import model.Aluno;
 import model.Pedagogo;
@@ -11,147 +13,345 @@ import javax.swing.*;
 
 public class Menu {
     public static void main(String[] args) {
-
-        int opcao;
-
-        List<Pessoa> pessoas = new ArrayList<>();
-        List<Aluno> alunos = new ArrayList<Aluno>();
-        List<Professor> professores = new ArrayList<Professor>();
-        List<Pedagogo> pedagogos = new ArrayList<Pedagogo>();
+Integer opcao;
+        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+        ArrayList<Professor> professores = new ArrayList<Professor>();
+        ArrayList<Pedagogo> pedagogos = new ArrayList<Pedagogo>();
+        Scanner scan = new Scanner(System.in);
 
         do{
 
-            opcao = Integer.parseInt(JOptionPane.showInputDialog("Menu \n 1 - Cadastrar Aluno \n 2 - Cadastrar Professor \n 3 - Cadastrar Pedagogo \n 4 - Atualiza Matricula do Aluno" 
-            + "\n 5 - Realiza Atendimento Pedagogo \n 6 - Lista de Pessoas \n 7 - Relatório Alunos \n 8 - Relatório Professores \n 9 - Relatório dos Alunos mais Atendidos pelo Pedagogo \n 10 - Relatório dos Pedagogos com mais Atendimentos \n 0 - Sair"));
-
+            System.out.println("Menu \n 1 - Cadastrar Aluno \n 2 - Alterar Matricula Aluno \n 3 - Cadastrar Professor \n 4 - Cadastrar Pedagogo \n 5 - Realizar atendimento \n 6 - Listar Pessoas \n 7 - Relatório Aluno \n 8 - Relatório Professor \n 9 - Relatório alunos com mais atendimentos pedagógicos  \n 10 - Relatório pedagogos com mais atendimentos pedagógicos\n 0 - Sair" );
+            System.out.println("Escolha uma opção");
+           opcao = Integer.parseInt(scan.nextLine());
             switch(opcao){
 
                 case 1:
-                    System.out.println("Cadastrar Aluno");
-                    System.out.println();
+                    System.out.println("Cadastro Aluno");
 
-                    String nomeAluno =JOptionPane.showInputDialog("Digite o nome");
-                    String telefoneAluno = JOptionPane.showInputDialog("Digite o telefone");
-                    String dataNascimentoAluno = JOptionPane.showInputDialog("Digite a data de nascimento");
-                    String cpfAluno = JOptionPane.showInputDialog("Digite o cpf");
-                    String matriculaAluno = JOptionPane.showInputDialog("Digite a matricula");
+                    System.out.println(" Digite o nome do aluno");
+                    String nomeAluno =scan.nextLine();
+                    System.out.println("Digite o telefone do aluno");
+                    String telefoneAluno = scan.nextLine();
+                    System.out.println("Digite a data de nascimento do aluno");
+                    String dataNascimentoAluno = scan.nextLine();
+                    System.out.println("Digite o CPF do aluno");
+                    String cpfAluno = scan.nextLine() ;
+                    System.out.println("Escolhe uma opção para a matricula\n 1 - Ativa\n 2 - Irregular\n 3 - Atendimento pedagógico\n 4 - Inativo");
+                    Integer opcaoAux =null;
+                    String matriculaAluno=null;
+                    do {
 
-                    Aluno aluno = new Aluno(nomeAluno, telefoneAluno, dataNascimentoAluno, cpfAluno, matriculaAluno);
+                        opcaoAux = Integer.parseInt(scan.nextLine());
+                        switch (opcaoAux) {
+                            case 1:
+                             matriculaAluno = "Ativa";
+                                opcaoAux =0;
+                            break;
+                            case 2:
+                                 matriculaAluno = "Irregular";
+                                opcaoAux =0;
+                                 break;
+                            case 3:
+                                matriculaAluno = "Atendimento pedagógico";
+                                opcaoAux =0;
+                                break;
+                            case 4:
+                                matriculaAluno = "Inativa";
+                                opcaoAux =0;
+                                break;
+                           default:
+                               System.out.println("Escolha uma opção válida");
+                               break;
+                        }
+                    }while(opcaoAux!=0);
+                    System.out.println("Digite a nota do processo seletivo");
+                    Double notaAluno = Double.parseDouble(scan.nextLine());
+
+                    Aluno aluno = new Aluno(nomeAluno,telefoneAluno,dataNascimentoAluno,cpfAluno,matriculaAluno,notaAluno);
 
                     alunos.add(aluno);
 
-                    System.out.println();
+                    System.out.println(alunos);
 
                 break;
 
                 case 2:
-                    System.out.println("Cadastrar Professor");
-                    System.out.println();
-                    String nomeProfessor = JOptionPane.showInputDialog("Digite o nome");
-                    String telefoneProfessor = JOptionPane.showInputDialog("Digite o telefone");
-                    String dataNascimentoProfessor = JOptionPane.showInputDialog("Digite a data de nascimento");
-                    String cpfProfessor = JOptionPane.showInputDialog("Digite o cpf");
-                    String experienciaProfessor = JOptionPane.showInputDialog("Digite a experiencia");
-                    String formacaoProfessor = JOptionPane.showInputDialog("Digite a formacao");
+                    System.out.println("Digite o CPF do aluno:");
+                    String cod = scan.nextLine();
+                    alunos.forEach(aluno1 -> {if (aluno1.getCpf().equals(cod)){
+                        System.out.println("Nome: "+aluno1.getNome());
+                        System.out.println("Matricula atual: "+aluno1.getMatricula());
+                        System.out.println("Escolhe uma opção para a matricula\n 1 - Ativa\n 2 - Irregular\n 3 - Atendimento pedagógico\n 4 - Inativo");
+                        Integer opcaoMatricula1 =null;
+                        String matriculaAluno1=null;
+                        do {
 
-                    Professor professor = new Professor(nomeProfessor, telefoneProfessor, dataNascimentoProfessor, cpfProfessor, experienciaProfessor, formacaoProfessor, estadoProfessor);
-
-                    professores.add(professor);
-
-                    System.out.println();
-                        
-                break;
-
+                            opcaoMatricula1 = Integer.parseInt(scan.nextLine());
+                            switch (opcaoMatricula1) {
+                                case 1:
+                                    matriculaAluno1 = "Ativa";
+                                    opcaoMatricula1 =0;
+                                    break;
+                                case 2:
+                                    matriculaAluno1 = "Irregular";
+                                    opcaoMatricula1 =0;
+                                    break;
+                                case 3:
+                                    matriculaAluno1 = "Atendimento pedagógico";
+                                    opcaoMatricula1 =0;
+                                    break;
+                                case 4:
+                                    matriculaAluno1 = "Inativa";
+                                    opcaoMatricula1 =0;
+                                    break;
+                                default:
+                                    System.out.println("Escolha uma opção válida");
+                                    break;
+                            }
+                        }while(opcaoMatricula1!=0);
+                    }else{
+                        System.out.println("CPF inválido");
+                    }
+                    });
+                    break;
                 case 3:
-                    System.out.println("Cadastrar Pedagogo");
-                    System.out.println();
-                    String nomePedagogo = JOptionPane.showInputDialog("Digite o nome");
-                    String telefonePedagogo = JOptionPane.showInputDialog("Digite o telefone");
-                    String dataNascimentoPedagogo = JOptionPane.showInputDialog("Digite a data de nascimento");
-                    String cpfPedagogo = JOptionPane.showInputDialog("Digite o cpf");
+                    System.out.println("Cadastro Professor");
+                    System.out.println(" Digite o nome do professor");
+                    String nomeProfessor =scan.nextLine();
+                    System.out.println("Digite o telefone do professor");
+                    String telefoneProfessor = scan.nextLine();
+                    System.out.println("Digite a data de nascimento do professor");
+                    String dataNascimentoProfessor = scan.nextLine();
+                    System.out.println("Digite o CPF do professor");
+                    String cpfProfessor = scan.nextLine() ;
+                    System.out.println("Escolha a formação acadêmica \n 1 - Graduação incompleta \n 2 - Graduação completa \n 3 - Mestrado \n 4 - Doutorado");
+                     opcaoAux =null;
+                    String formacaoProfessor=null;
+                    do {
 
-                    Pedagogo pedagogo = new Pedagogo(nomePedagogo, telefonePedagogo, dataNascimentoPedagogo, cpfPedagogo, contadorPedagogo);
-                    pedagogos.add(pedagogo);
+                        opcaoAux = Integer.parseInt(scan.nextLine());
+                        switch (opcaoAux) {
+                            case 1:
+                                formacaoProfessor = "Graduação incompleta ";
+                                opcaoAux =0;
+                                break;
+                            case 2:
+                                formacaoProfessor = "Graduação completa";
+                                opcaoAux =0;
+                                break;
+                            case 3:
+                                formacaoProfessor = "Mestrado";
+                                opcaoAux =0;
+                                break;
+                            case 4:
+                                formacaoProfessor = "Doutorado";
+                                opcaoAux =0;
+                                break;
+                            default:
+                                System.out.println("Escolha uma opção válida");
+                                break;
+                        }
+                    }while(opcaoAux!=0);
+                    System.out.println("Escolha a experiência em desenvolvimento \n 1 - Front-End \n 2 - Back-End \n 3 - Full-Stack \n ");
+                    opcaoAux =null;
+                    String experienciaProfessor = null;
+                    do {
 
-                    System.out.println();
-                break;
+                        opcaoAux = Integer.parseInt(scan.nextLine());
+                        switch (opcaoAux) {
+                            case 1:
+                                experienciaProfessor = "Front-End ";
+                                opcaoAux =0;
+                                break;
+                            case 2:
+                                experienciaProfessor = "Back-End";
+                                opcaoAux =0;
+                                break;
+                            case 3:
+                                experienciaProfessor = "Full-Stack";
+                                opcaoAux =0;
+                                break;
+                            default:
+                                System.out.println("Escolha uma opção válida");
+                                break;
+                        }
+                    }while(opcaoAux!=0);
+                    System.out.println("Escolha o estado do professor \n 1 - Ativo \n 2 - Inativo ");
+                    opcaoAux =null;
+                    boolean estadoProfessor = true;
+                    do {
 
+                        opcaoAux = Integer.parseInt(scan.nextLine());
+                        switch (opcaoAux) {
+                            case 1:
+                                estadoProfessor=true;
+                                opcaoAux =0;
+                                break;
+                            case 2:
+                                estadoProfessor=false;
+                                opcaoAux =0;
+                                break;
+                            default:
+                                System.out.println("Escolha uma opção válida");
+                                break;
+                        }
+                    }while(opcaoAux!=0);
+
+                    Professor professor = new Professor(nomeProfessor,telefoneProfessor,dataNascimentoProfessor,cpfProfessor,experienciaProfessor,formacaoProfessor,estadoProfessor);
+                    professores.add(professor);
+                    System.out.println(professores);
+                    break;
                 case 4:
-                    System.out.println("Atualiza Matricula do Aluno");
-                    System.out.println();
-                    String matriculaAlunoAtualizada = JOptionPane.showInputDialog("Digite a matricula");
-
-                    aluno.setMatricula(matriculaAlunoAtualizada);
-
-                    System.out.println("Matricula atualizada com sucesso");
-                    System.out.println();
-
-                break;
+                    System.out.println("Cadastro Pedagogo");
+                    System.out.println(" Digite o nome do Pedagogo");
+                    String nomePedagogo =scan.nextLine();
+                    System.out.println("Digite o telefone do Pedagogo");
+                    String telefonePedagogo = scan.nextLine();
+                    System.out.println("Digite a data de nascimento do Pedagogo");
+                    String dataNascimentoPedagogo = scan.nextLine();
+                    System.out.println("Digite o CPF do Pedagogo");
+                    String cpfPedagogo = scan.nextLine() ;
+                    Pedagogo pedagogo = new Pedagogo(nomePedagogo,telefonePedagogo,dataNascimentoPedagogo,cpfPedagogo);
+                    pedagogos.add(pedagogo);
+                    System.out.println(pedagogos);
+                    break;
 
                 case 5:
-                    System.out.println("Realiza Atendimento Pedagogo");
-                    System.out.println();
-                    String nomeAlunoAtendimento = JOptionPane.showInputDialog("Digite o nome do aluno");
-                    String nomePedagogoAtendimento = JOptionPane.showInputDialog("Digite o nome do pedagogo");
+                    System.out.println("Realizar um atendimento Pedagógico");
+                    System.out.println("Informe o CPF do pedagogo");
+                    String codPedagogo = scan.nextLine();
+                    System.out.println("Informe o CPF do aluno");
+                    String codAluno = scan.nextLine();
 
+                    pedagogos.forEach(pedagogo1 -> {
+                        if (pedagogo1.getCpf().equals(codPedagogo)){
+                            alunos.forEach(aluno1 -> {
+                                if (aluno1.getCpf().equals(codAluno)){
+                                    pedagogo1.setTotalAtendimentoPedagogo(pedagogo1.getTotalAtendimentoPedagogo()+1);
+                                    aluno1.setTotalAtendimentoAluno(aluno1.getTotalAtendimentoAluno()+1);
+                                }else {
+                                    System.out.println("CPF aluno inválido");
+                                }
+                            });
+                        }else {
+                            System.out.println("CPF pedagogo inválido");
+                        }
 
-                    System.out.println();
-
-                break;
+                    });
+                    System.out.println(pedagogos);
+                    break;
 
                 case 6:
-                    System.out.println("Lista de Pessoas");
-
-                    for (int i = 0; i < pessoas.size(); i++) {
-                        pessoas.get(i).toString();
+                    System.out.println("Escolha qual a categoria que deseja listar \n 1 - Alunos \n 2 - Professores \n 3 - Pedagogos \n 4 - Todos");
+                    Integer opcao3 = Integer.parseInt(scan.nextLine());
+                    switch (opcao3){
+                        case 1:
+                            System.out.println(alunos);
+                        break;
+                            case 2:
+                                System.out.println(professores);
+                        break;
+                                case 3:
+                            System.out.println(pedagogos);
+                            break;
+                        case 4:
+                            System.out.println(alunos);
+                            System.out.println(professores);
+                            System.out.println(pedagogos);
+                            break;
+                        default:
+                            System.out.println("Opção inválida");
                     }
-                    System.out.println();
-                break;  
-
+                    break;
                 case 7:
-                    System.out.println("Relatório Alunos");
+                    System.out.println("Escolha qual a situação da matricula deseja listar \n 1 - Ativo \n 2 - Irregular \n 3 - Atendimento pedagógico \n 4 - Inativo \n 5 - Todos");
+                    Integer opcao4 = Integer.parseInt(scan.nextLine());
+                    switch (opcao4){
+                        case 1:
+                         alunos.forEach(aluno1 -> {
+                             if (aluno1.getMatricula().equals("Ativa")) {
+                                 System.out.println(aluno1);
+                             }
+                         });
+                            break;
+                        case 2:
+                            alunos.forEach(aluno1 -> {
+                                if (aluno1.getMatricula().equals("Irregular")) {
+                                    System.out.println(aluno1);
+                                }
+                            });
+                            break;
+                        case 3:
+                            alunos.forEach(aluno1 -> {
+                                if (aluno1.getMatricula().equals("Atendimento pedagógico")) {
+                                    System.out.println(aluno1);
+                                }
+                            });
+                            break;
+                        case 4:
+                            alunos.forEach(aluno1 -> {
+                                if (aluno1.getMatricula().equals("Inativa")) {
+                                    System.out.println(aluno1);
+                                }
+                            });
+                            break;
+                        case 5:
+                            alunos.forEach(System.out::println);
+                            break;
 
-                    for(int i = 0; i < alunos.size(); i++ ){
-
-                        alunos.get(i).toString();
+                        default:
+                            System.out.println("Opção inválida");
                     }
-                    System.out.println();
-                break;
-
+                    break;
                 case 8:
-                    System.out.println("Relatório Professores");
+                    System.out.println("Escolha qual a experiencia do professor deseja listar \n 1 - Front-End \n 2 - Back-End \n 3 - Full-Stack \n 4 - Todos");
+                    Integer opcao5 = Integer.parseInt(scan.nextLine());
+                    switch (opcao5){
+                        case 1:
+                            professores.forEach(professor1  -> {
+                                if (professor1.getExperienciaDesenvolvimento().equals("Front-End")) {
+                                    System.out.println(professor1);
+                                }
+                            });
+                            break;
+                        case 2:
+                            professores.forEach(professor1  -> {
+                                if (professor1.getExperienciaDesenvolvimento().equals("Back-End")) {
+                                    System.out.println(professor1);
+                                }
+                            });
+                            break;
+                        case 3:
+                            professores.forEach(professor1  -> {
+                                if (professor1.getExperienciaDesenvolvimento().equals("Full-Stack")) {
+                                    System.out.println(professor1);
+                                }
+                            });
+                            break;
 
-                    for(int i = 0; i < professores.size(); i++ ){
+                        case 4:
+                            alunos.forEach(System.out::println);
+                            break;
 
-                        professores.get(i).toString();
+                        default:
+                            System.out.println("Opção inválida");
                     }
-                    System.out.println();
-                break;
-
+                    break;
                 case 9:
-                    System.out.println("Relatório dos Alunos mais Atendidos pelo Pedagogo");
-
-
-
-
-                    System.out.println();
-                break;
-
+                    alunos.sort(Comparator.comparing(Aluno::getTotalAtendimentoAluno));
+                    System.out.println(alunos);
+                    break;
                 case 10:
-                    System.out.println("Relatório dos Pedagogos com mais Atendimentos");
-
-
-
-                    System.out.println();
-                break;
-
+                    pedagogos.sort(Comparator.comparing(Pedagogo::getTotalAtendimentoPedagogo));
+                    System.out.println(pedagogos);
+                    break;
                 case 0:
                     System.out.println("Sair");
-                    System.out.println();
                     break;
                 default:
                     System.out.println("Opção invalida");
-                    System.out.println();
+
                     break;
 
             }
@@ -159,5 +359,6 @@ public class Menu {
         }while(opcao != 0);
 
     }
+
     
 }

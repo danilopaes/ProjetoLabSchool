@@ -1,14 +1,16 @@
 package model;
 
 
+import java.util.UUID;
+
 public class Pessoa {
 
 
     private String nome;
-    private String  telefone;
+    private String telefone;
     private String dataNascimento;
-    private String  cpf;
-    private double codigo = Math.random();
+    private String cpf;
+    private UUID codigo = UUID.randomUUID();
 
 
     public Pessoa(String nome, String telefone, String dataNascimento, String cpf) {
@@ -18,42 +20,7 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public double getCodigo() {
-        return codigo;
-    }
-
+    @Override
     public String toString() {
         return "Pessoa{" +
                 "nome='" + nome + '\'' +
@@ -62,5 +29,13 @@ public class Pessoa {
                 ", cpf='" + cpf + '\'' +
                 ", codigo=" + codigo +
                 '}';
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

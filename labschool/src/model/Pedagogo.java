@@ -2,28 +2,26 @@ package model;
 
 public class Pedagogo extends Pessoa{
 
-private Integer contador = 0;
+private Integer totalAtendimentoPedagogo = 0;
 
 
-    public Pedagogo(String nome, String telefone, String dataNascimento, String cpf, Integer contador) {
+    public Pedagogo(String nome, String telefone, String dataNascimento, String cpf) {
         super(nome, telefone, dataNascimento, cpf);
-        this.contador = contador;
+
     }
-
-
-    public Integer getContador() {
-        return contador;
-    }
-
-    public void setContador(Integer contador) {
-        this.contador = contador;
-    }
-
 
     @Override
     public String toString() {
         return "Pedagogo{" +
-                "contador=" + contador +
+                "totalAtendimentoPedagogo=" + totalAtendimentoPedagogo +
                 "} " + super.toString();
+    }
+
+    public void setTotalAtendimentoPedagogo(Integer totalAtendimentoPedagogo) {
+        this.totalAtendimentoPedagogo = totalAtendimentoPedagogo;
+    }
+
+    public Integer getTotalAtendimentoPedagogo() {
+        return totalAtendimentoPedagogo;
     }
 }

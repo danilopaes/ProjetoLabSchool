@@ -2,14 +2,27 @@ package model;
 
 public class Aluno extends Pessoa {
 
-    String matricula;
+    private String matricula;
+
+    private Double notaProcesso;
+
+    private Integer totalAtendimentoAluno =0 ;
 
 
-    public Aluno(String nome, String telefone, String dataNascimento, String cpf,String matricula) {
+    public Aluno(String nome, String telefone, String dataNascimento, String cpf, String matricula, Double notaProcesso) {
         super(nome, telefone, dataNascimento, cpf);
         this.matricula = matricula;
+        this.notaProcesso = notaProcesso;
     }
 
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "matricula='" + matricula + '\'' +
+                ", notaProcesso=" + notaProcesso +
+                ", totalAtendimentoAluno=" + totalAtendimentoAluno +
+                "} " + super.toString();
+    }
 
     public String getMatricula() {
         return matricula;
@@ -19,10 +32,11 @@ public class Aluno extends Pessoa {
         this.matricula = matricula;
     }
 
-    @Override
-    public String toString() {
-        return "Aluno{" +
-                "matricula='" + matricula + '\'' +
-                "} " + super.toString();
+    public void setTotalAtendimentoAluno(Integer totalAtendimentoAluno) {
+        this.totalAtendimentoAluno = totalAtendimentoAluno;
+    }
+
+    public Integer getTotalAtendimentoAluno() {
+        return totalAtendimentoAluno;
     }
 }

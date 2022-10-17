@@ -14,31 +14,6 @@ public class Professor extends Pessoa {
         this.estado = estado;
     }
 
-    public String getExperienciaDesenvolvimento() {
-        return experienciaDesenvolvimento;
-    }
-
-    public void setExperienciaDesenvolvimento(String experienciaDesenvolvimento) {
-        this.experienciaDesenvolvimento = experienciaDesenvolvimento;
-    }
-
-    public String getFormacao() {
-        return formacao;
-    }
-
-    public void setFormacao(String formacao) {
-        this.formacao = formacao;
-    }
-
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
-
     @Override
     public String toString() {
         return "Professor{" +
@@ -46,6 +21,10 @@ public class Professor extends Pessoa {
                 ", formacao='" + formacao + '\'' +
                 ", estado=" + estado +
                 "} " + super.toString();
+    }
+
+    public String getExperienciaDesenvolvimento() {
+        return experienciaDesenvolvimento;
     }
 }
     
